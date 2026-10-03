@@ -1,0 +1,11 @@
+node_modules/
+*.log
+.env
+
+# Live data: users, workouts, messages, accounts
+db.json
+db.json.*
+db-backups/
+
+# Bring your own 3D body model (not redistributable)
+public/*.glb

@@ -1,0 +1,93 @@
+/* ============================================================================
+   IronLog design system.
+   COPIED VERBATIM from design/IronLog.dc.html <style> block (lines 14-95).
+   Per PORT-GUIDE.md: this IS the design. Do not edit, normalise or "clean up"
+   any value here. Container queries must stay container queries.
+   ============================================================================ */
+  *{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent;}
+  html,body{height:100%;}
+  body{background:#0E0B07;font-family:'Manrope',sans-serif;}
+  :root{--ac:#F2B33D;--acl:#F8C95E;--acd:#E6822A;--ink:#1A1208;--acr:242,179,61;--aclr:248,201,94;--acdr:230,140,40;--inkr:26,18,8;}
+  .sora{font-family:'Sora',sans-serif;}
+  .ilsc::-webkit-scrollbar{width:0;height:0;}
+  .ilsc{scrollbar-width:none;}
+  @keyframes scrnIn{from{opacity:0;transform:translateY(10px);}to{opacity:1;transform:none;}}
+  @keyframes rise{from{opacity:0;transform:translateY(18px);}to{opacity:1;transform:none;}}
+  @keyframes pop{from{opacity:0;transform:scale(.9);}to{opacity:1;transform:none;}}
+  @keyframes barUp{from{transform:scaleY(0);}to{transform:none;}}
+  @keyframes fadeIn{from{opacity:0;}to{opacity:1;}}
+  @keyframes sheetIn{from{transform:translateY(102%);}to{transform:none;}}
+  @keyframes toastIn{from{opacity:0;transform:translate(-50%,14px) scale(.96);}to{opacity:1;transform:translate(-50%,0) scale(1);}}
+  @keyframes spin{to{transform:rotate(360deg);}}
+  @keyframes glowPulse{0%,100%{box-shadow:0 10px 26px rgba(var(--acr),.28);}50%{box-shadow:0 16px 40px rgba(var(--acr),.5);}}
+  @keyframes shimmer{0%{background-position:-180% 0;}100%{background-position:180% 0;}}
+  @keyframes pulseDot{0%,100%{opacity:1;transform:scale(1);}50%{opacity:.5;transform:scale(.78);}}
+  @keyframes toastDrop{from{opacity:0;transform:translateY(-16px) scale(.95);}to{opacity:1;transform:none;}}
+  .press{transition:transform .14s ease, filter .18s ease, box-shadow .2s ease;cursor:pointer;}
+  .press:active{transform:scale(.96);filter:brightness(1.05);}
+  input{font-family:'Manrope',sans-serif;}
+  a{color:var(--ac);text-decoration:none;}
+  a:hover{color:var(--acl);}
+  input[type=number]::-webkit-inner-spin-button{-webkit-appearance:none;}
+  /* responsive utilities — container-driven so the app also adapts inside a narrow shell */
+  .ilroot{container-type:inline-size;container-name:app;}
+  @container app (min-width:900px){
+    .mob-only{display:none !important;}
+    .screen{min-height:auto !important;padding:46px 30px 64px !important;}
+  }
+  @container app (max-width:899px){ .desk-only{display:none !important;} }
+  @container app (max-width:380px){
+    .screen{padding-left:16px !important;padding-right:16px !important;}
+  }
+  /* home hero layout (full-bleed 3D stage) */
+  .homeScreen{padding:0 0 132px !important;}
+  .homeHero{height:474px;}
+  .homeStage{position:absolute;left:0;right:0;top:40px;bottom:0;display:flex;justify-content:center;}
+  .homeHeroHead{padding:14px 22px 0;}
+  .homePad{padding:0 22px;}
+  @container app (min-width:900px){
+    .homeScreen{padding:0 0 64px !important;}
+    .homeHero{height:592px;border-radius:30px;margin:22px 30px 0;box-shadow:0 44px 100px -30px rgba(0,0,0,.58),0 0 140px -60px rgba(var(--acr),.35);}
+    .homeStage{top:0;}
+    .homeHeroHead{padding:40px 30px 0;}
+    .homePad{padding:0 30px;}
+  }
+  @container app (max-width:380px){
+    .homeHeroHead{padding-left:16px !important;padding-right:16px !important;}
+    .homePad{padding:0 16px !important;}
+  }
+  /* body-lab mode toggle must never slide under the 3D control cluster (74px grid + 10px inset) */
+  .bodyToggle{right:104px !important;}
+  .bodyToggle > div{max-width:340px !important;}
+  @container app (max-width:420px){ .bodyToggle{bottom:92px !important;} }
+  /* tablet portrait + foldable-unfolded: still no sidebar, but too wide for an edge-to-edge phone hero */
+  @container app (min-width:620px) and (max-width:899px){
+    .homeScreen{padding:0 0 110px !important;}
+    .homeHero{height:520px;border-radius:28px;margin:20px 26px 0;box-shadow:0 34px 80px -26px rgba(0,0,0,.55),0 0 110px -55px rgba(var(--acr),.32);}
+    .homeStage{top:0;}
+    .homeHeroHead{padding:34px 30px 0;}
+    .homePad{padding:0 30px;}
+  }
+  /* staggered list entrance via nth-child (cascades children in) */
+  .stagger > *{animation:rise .5s cubic-bezier(.2,.8,.2,1) both;}
+  .stagger > *:nth-child(1){animation-delay:.03s}
+  .stagger > *:nth-child(2){animation-delay:.08s}
+  .stagger > *:nth-child(3){animation-delay:.13s}
+  .stagger > *:nth-child(4){animation-delay:.18s}
+  .stagger > *:nth-child(5){animation-delay:.23s}
+  .stagger > *:nth-child(6){animation-delay:.28s}
+  .stagger > *:nth-child(7){animation-delay:.33s}
+  .stagger > *:nth-child(8){animation-delay:.38s}
+  .stagger > *:nth-child(9){animation-delay:.43s}
+  .stagger > *:nth-child(10){animation-delay:.48s}
+  .stagger > *:nth-child(n+11){animation-delay:.53s}
+  @keyframes growUp{from{transform:scaleY(0);}to{transform:scaleY(1);}}
+  .growbar{transform-origin:bottom;animation:growUp .65s cubic-bezier(.2,.8,.2,1) both;}
+  @media(prefers-reduced-motion:reduce){*{animation-duration:.001s !important;}}
+
+/* ---------------------------------------------------------------------------
+   Host-shell additions only (the DC file gets these from its own page chrome).
+   No design values below this line.
+   --------------------------------------------------------------------------- */
+  #root{height:100%;}
+  body{color:#F4ECDD;}

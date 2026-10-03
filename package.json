@@ -1,0 +1,17 @@
+{
+  "name": "ironlog",
+  "private": true,
+  "version": "1.0.0",
+  "description": "Workout tracker with programs, live sessions, progress charts and a muscle-recovery engine.",
+  "type": "module",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "dependencies": {
+    "cors": "^2.8.6",
+    "express": "^5.2.1"
+  }
+}
