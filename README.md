@@ -8,6 +8,8 @@
 ![PWA](https://img.shields.io/badge/PWA-installable-5A0FC8)
 ![License](https://img.shields.io/badge/license-MIT-green)
 
+<p align="center"><img src="docs/screenshot.jpg" width="300" alt="IronLog user picker on a phone"></p>
+
 ## Features
 
 - 👥 **Multiple users** on one server, each with an optional **PIN**, plus optional e-mail accounts.
